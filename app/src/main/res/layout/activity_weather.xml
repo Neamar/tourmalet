@@ -2,7 +2,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#afdc00"
+                android:background="#afdce6"
                 tools:context=".WeatherActivity">
 
     <include
@@ -11,4 +11,121 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Météo"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Samedi 13 décembre"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#2d746c"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:paddingTop="16dp"
+            android:text="Bagnères de Bigorre"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF"/>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/border"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Matin"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#2d746c"/>
+
+                    <ImageView
+                        android:id="@+id/morning_weather_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/weather_002"/>
+
+                    <TextView
+                        android:id="@+id/morning_weather_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="min. 1°C\nmax. 1°C\nCiel voilé"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#2d746c"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/border"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Après-midi"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#2d746c"/>
+
+                    <ImageView
+                        android:id="@+id/afternoon_weather_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/weather_021"/>
+
+                    <TextView
+                        android:id="@+id/afternoon_weather_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="min. 1°C\nmax. 1°C\nSoleil"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#2d746c"/>
+                </LinearLayout>
+            </TableRow>
+        </TableLayout>
+
+    </LinearLayout>
+
 </RelativeLayout>
