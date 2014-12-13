@@ -116,7 +116,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
-                        android:text="min. 1°C\nmax. 1°C\nSoleil\nPluie\nLol\nEncore"
+                        android:text="min. 1°C\nmax. 1°C\nSoleil"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textColor="#2d746c"/>
                 </LinearLayout>

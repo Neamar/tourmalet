@@ -69,8 +69,26 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/triangle_tops"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/triangle_tops"/>
+
+    <ImageButton
+        android:id="@+id/logoPict"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/logoTourmalet"
+        android:layout_toEndOf="@+id/logoTourmalet"
+        android:layout_toRightOf="@+id/logoTourmalet"
+        android:background="@drawable/tutorial_logo_pic"/>
+
+    <ImageButton
+        android:id="@+id/logoTourmalet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/tutorial_logo_tourmalet"/>
 </RelativeLayout>
