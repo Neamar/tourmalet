@@ -1,9 +1,6 @@
 package bealder.tourmalet;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -12,10 +9,7 @@ import android.support.v4.view.ViewPager;
  * Created by neamar on 12/13/14.
  */
 public class SlideActivity extends FragmentActivity {
-		/**
-		 * The number of pages (wizard steps) to show in this demo.
-		 */
-		private final int NUM_PAGES = 3;
+
 
 		/**
 		 * The pager widget, which handles animation and allows swiping horizontally to access previous
@@ -29,10 +23,10 @@ public class SlideActivity extends FragmentActivity {
 		private PagerAdapter mPagerAdapter;
 
 
-		protected void initPager() {
+		protected void initPager(FragmentStatePagerAdapter adapter) {
 				// Instantiate a ViewPager and a PagerAdapter.
 				mPager = (ViewPager) findViewById(R.id.pager);
-				mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+				mPagerAdapter = adapter;
 				mPager.setAdapter(mPagerAdapter);
 		}
 
@@ -45,27 +39,6 @@ public class SlideActivity extends FragmentActivity {
 				} else {
 						// Otherwise, select the previous step.
 						mPager.setCurrentItem(mPager.getCurrentItem() - 1);
-				}
-		}
-
-		private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
-				public ScreenSlidePagerAdapter(FragmentManager fm) {
-						super(fm);
-				}
-
-				@Override
-				public Fragment getItem(int position) {
-						Bundle bundle = new Bundle();
-						bundle.putInt("page", position);
-
-						Fragment page = new TutorialSlideFragment();
-						page.setArguments(bundle);
-						return page;
-				}
-
-				@Override
-				public int getCount() {
-						return NUM_PAGES;
 				}
 		}
 }

@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:paddingTop="16dp"
+        android:id="@+id/station"
         android:text="Bagnères de Bigorre"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#FFFFFF"/>
