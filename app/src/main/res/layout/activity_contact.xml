@@ -5,157 +5,87 @@
                 android:background="#afdce6"
                 tools:context=".ContactActivity">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/scrollView"
-        >
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal"
+            android:text="Contact"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:padding="25dp"
+            android:text="@string/contact_raw"
+            android:id="@+id/contact"/>
 
         <LinearLayout
+            android:orientation="vertical"
+            android:background="@drawable/border"
+            android:layout_margin="25dp"
+            android:padding="16dp"
+            android:gravity="center"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"
-                android:gravity="center_horizontal"
-                android:text="Contact"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="#FFFFFF"
-                />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="30dp"
-                android:gravity="center_horizontal"
-                android:text="Office de tourisme du Grand Tourmalet"
+                android:layout_weight="1"
+                android:text="info@grand-tourmalet.com"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#2d746c"
-                />
-
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
-
-                <TableRow
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_marginBottom="15dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Adresse"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textStyle="bold"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/adresse"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:layout_column="2"/>
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_marginBottom="15dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="E-mail"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textStyle="bold"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="info@grand-tourmalet.com"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:layout_column="2"/>
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_marginBottom="15dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Tél."
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textStyle="bold"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/telephones"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:layout_column="2"/>
-                </TableRow>
-
-            </TableLayout>
-
+                android:paddingBottom="16dp"
+                android:layout_column="2"/>
 
             <TextView
-                android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
-                android:text="#grandtourmalet"
-                android:textAppearance="?android:attr/textAppearanceLarge"/>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/contact_twitter"
-                    android:id="@+id/contact_twitter"/>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/contact_instagram"
-                    android:id="@+id/contact_instagram"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/contact_facebook"
-                    android:id="@+id/contact_facebook"/>
-
-            </LinearLayout>
+                android:layout_weight="1"
+                android:id="@+id/phones"
+                android:text="@string/telephones_raw"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_column="2"/>
         </LinearLayout>
-    </ScrollView>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/contact_twitter"
+                android:id="@+id/contact_twitter"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/contact_instagram"
+                android:id="@+id/contact_instagram"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/contact_facebook"
+                android:id="@+id/contact_facebook"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
     <include
         android:id="@+id/menu"
