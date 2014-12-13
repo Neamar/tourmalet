@@ -32,30 +32,26 @@
 
             <ImageView
                 android:id="@+id/menu_welcome"
-                android:layout_width="50dp"
-
-                android:layout_height="39dp"
-                android:src="@drawable/home"
-                />
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/home"/>
 
             <ImageView
                 android:id="@+id/menu_weather"
-                android:layout_width="50dp"
-                android:layout_height="39dp"
-
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginRight="15dp"
-                android:src="@drawable/weather"
-                />
+                android:src="@drawable/weather"/>
 
 
             <ImageView
                 android:id="@+id/menu_contact"
-                android:layout_width="50dp"
-                android:layout_height="39dp"
-                android:layout_marginRight="15dp"
+                android:layout_width="wrap_content"
 
-                android:src="@drawable/contact"
-                />
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/contact"/>
         </LinearLayout>
     </LinearLayout>
 
