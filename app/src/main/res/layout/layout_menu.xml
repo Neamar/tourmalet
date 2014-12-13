@@ -34,14 +34,14 @@
                 android:id="@+id/menu_welcome"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="45dp"
                 android:src="@drawable/menu_home"/>
 
             <ImageView
                 android:id="@+id/menu_weather"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="45dp"
                 android:src="@drawable/menu_weather"/>
 
 
