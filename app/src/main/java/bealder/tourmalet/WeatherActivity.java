@@ -7,14 +7,14 @@ import java.text.DateFormat;
 import java.util.Date;
 
 
-public class WeatherActivity extends MenuActivity {
+public class WeatherActivity extends SlideActivity {
 
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
 				super.onCreate(savedInstanceState);
 				setContentView(R.layout.activity_weather);
 
-				addMenuListeners(R.id.menu_weather);
+				new MixinMenuActivity().addMenuListeners(this);
 
 				TextView dateText = (TextView) findViewById(R.id.date);
 
@@ -22,5 +22,7 @@ public class WeatherActivity extends MenuActivity {
 
 				dateString = dateString.substring(0, 1).toUpperCase() + dateString.substring(1).toLowerCase();
 				dateText.setText(dateString);
+
+				initPager();
 		}
 }

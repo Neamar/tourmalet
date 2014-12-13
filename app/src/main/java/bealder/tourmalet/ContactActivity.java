@@ -1,5 +1,6 @@
 package bealder.tourmalet;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,14 +11,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-public class ContactActivity extends MenuActivity {
+public class ContactActivity extends Activity {
 
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
 				super.onCreate(savedInstanceState);
 				setContentView(R.layout.activity_contact);
 
-				addMenuListeners(R.id.menu_contact);
+				new MixinMenuActivity().addMenuListeners(this);
 
 				addSocialLink(R.id.contact_facebook, "https://fr-fr.facebook.com/grandtourmalet");
 				addSocialLink(R.id.contact_twitter, "https://twitter.com/GrandTourmalet");
