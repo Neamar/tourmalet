@@ -5,10 +5,148 @@
                 android:background="#afdce6"
                 tools:context=".ContactActivity">
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Contact"
+            android:textColor="#FFFFFF"
+            android:id="@+id/textView2"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Office de tourisme du Grand Tourmalet"
+            android:textColor="#2d746c"
+            android:id="@+id/textView3"
+            android:layout_marginBottom="30dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_gravity="center_horizontal">
+
+            <TableRow
+                android:layout_marginBottom="15dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Adressse :"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/adresse"
+                    android:layout_weight="1"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_marginBottom="15dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="E-mail :"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="info@grand-tourmalet.com"
+                    android:layout_weight="1"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_marginBottom="15dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Tél. :"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/telephones"
+                    android:layout_weight="1"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_marginBottom="15dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Social :"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="{icones}"
+                    android:layout_weight="1"
+                    />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="#grandtourmalet"
+            android:id="@+id/textView4"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+
     <include
         layout="@layout/layout_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        />
+        android:id="@+id/menu"/>
 </RelativeLayout>

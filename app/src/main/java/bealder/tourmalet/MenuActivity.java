@@ -27,6 +27,7 @@ public class MenuActivity extends Activity {
 						@Override
 						public void onClick(View view) {
 								Intent i = new Intent(MenuActivity.this, activityToOpen);
+								i.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 								startActivity(i);
 						}
 				});
