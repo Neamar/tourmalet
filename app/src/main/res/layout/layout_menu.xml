@@ -33,27 +33,28 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="39dp"
+
+                android:src="@drawable/home"
+                android:id="@+id/menu_welcome"
+                />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="39dp"
+                android:layout_marginRight="15dp"
+
+                android:src="@drawable/weather"
+                android:id="@+id/menu_weather"
+                />
+
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="39dp"
                 android:src="@drawable/contact"
                 android:layout_marginRight="15dp"
 
                 android:id="@+id/menu_contact"
-                />
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="39dp"
-                android:layout_marginRight="15dp"
-
-                android:src="@drawable/contact"
-                android:id="@+id/menu_weather"
-                />
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="39dp"
-
-                android:src="@drawable/contact"
-                android:id="@+id/menu_welcome"
                 />
         </LinearLayout>
     </LinearLayout>

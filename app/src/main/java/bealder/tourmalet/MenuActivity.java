@@ -14,7 +14,7 @@ public class MenuActivity extends Activity {
 						addMenuListener(R.id.menu_welcome, WelcomeActivity.class);
 				}
 				if (currentActivity != R.id.menu_weather) {
-						addMenuListener(R.id.menu_weather, WelcomeActivity.class);
+						addMenuListener(R.id.menu_weather, WeatherActivity.class);
 				}
 				if (currentActivity != R.id.menu_contact) {
 						addMenuListener(R.id.menu_contact, ContactActivity.class);
@@ -22,7 +22,7 @@ public class MenuActivity extends Activity {
 		}
 
 		private void addMenuListener(int id, final Class activityToOpen) {
-				ImageView contactButton = (ImageView) findViewById(R.id.menu_contact);
+				ImageView contactButton = (ImageView) findViewById(id);
 				contactButton.setOnClickListener(new View.OnClickListener() {
 						@Override
 						public void onClick(View view) {
