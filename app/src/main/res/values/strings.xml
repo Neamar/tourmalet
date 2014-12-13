@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Tourmalet</string>
+    <string name="app_name">Grand Tourmalet Pic du Midi</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_tutorial">Tourmalet</string>
     <string name="title_activity_contact">Contact</string>
