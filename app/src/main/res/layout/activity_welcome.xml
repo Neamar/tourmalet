@@ -20,28 +20,28 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Bienvenue au Grand Tourmalet"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="#FFFFFF"
-                android:text="Bienvenue au Grand Tourmalet"/>
+                android:textColor="#FFFFFF"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#aedde5"
+                android:text="Vivez une nouvelle expérience"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Vivez une nouvelle expérience"/>
+                android:textColor="#aedde5"/>
 
 
             <Button
                 android:id="@+id/display_tutorial"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#2d746c"
-                android:textColor="#FFFFFF"
                 android:layout_marginTop="25dp"
+                android:background="#2d746c"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="Comment ça marche ?"
+                android:textColor="#FFFFFF"
                 />
         </LinearLayout>
 

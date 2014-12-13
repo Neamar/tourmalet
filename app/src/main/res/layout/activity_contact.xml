@@ -11,142 +11,142 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Contact"
-            android:textColor="#FFFFFF"
-            android:id="@+id/textView2"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
             android:gravity="center_horizontal"
+            android:text="Contact"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF"
             />
 
         <TextView
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Office de tourisme du Grand Tourmalet"
-            android:textColor="#2d746c"
-            android:id="@+id/textView3"
-            android:layout_marginBottom="30dp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="30dp"
             android:gravity="center_horizontal"
+            android:text="Office de tourisme du Grand Tourmalet"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#2d746c"
             />
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:layout_gravity="center_horizontal">
+            android:paddingRight="16dp">
 
             <TableRow
-                android:layout_marginBottom="15dp"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="15dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_weight="1"
                     android:text="Adressse :"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textStyle="bold"
-                    android:layout_weight="1"
                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_weight="1"
                     android:text="@string/adresse"
-                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     />
             </TableRow>
 
             <TableRow
-                android:layout_marginBottom="15dp"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="15dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_weight="1"
                     android:text="E-mail :"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textStyle="bold"
-                    android:layout_weight="1"
                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_weight="1"
                     android:text="info@grand-tourmalet.com"
-                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     />
             </TableRow>
 
             <TableRow
-                android:layout_marginBottom="15dp"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="15dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_weight="1"
                     android:text="Tél. :"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textStyle="bold"
-                    android:layout_weight="1"
                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/telephones"
                     android:layout_weight="1"
+                    android:text="@string/telephones"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     />
             </TableRow>
 
             <TableRow
-                android:layout_marginBottom="15dp"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="15dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Social :"
-                    android:textStyle="bold"
                     android:layout_weight="1"
+                    android:text="Social :"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold"
                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="{icones}"
                     android:layout_weight="1"
+                    android:text="{icones}"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     />
             </TableRow>
         </TableLayout>
 
         <TextView
+            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_gravity="center_horizontal"
             android:text="#grandtourmalet"
-            android:id="@+id/textView4"
-            android:layout_gravity="center_horizontal"/>
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
     </LinearLayout>
 
     <include
+        android:id="@+id/menu"
         layout="@layout/layout_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/menu"/>
+        android:layout_alignParentBottom="true"/>
 </RelativeLayout>

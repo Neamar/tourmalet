@@ -6,13 +6,13 @@
                 tools:context="bealder.tourmalet.SplashActivity">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/textSizeXtraLarge"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:text="#tourmalet"
-        android:id="@+id/textView"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:text="#tourmalet"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/textSizeXtraLarge"
+        android:textStyle="bold"/>
 </RelativeLayout>
