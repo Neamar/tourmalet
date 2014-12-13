@@ -1,8 +1,9 @@
 package bealder.tourmalet;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
 
 
 public class WelcomeActivity extends Activity {
@@ -11,13 +12,20 @@ public class WelcomeActivity extends Activity {
 		protected void onCreate(Bundle savedInstanceState) {
 				super.onCreate(savedInstanceState);
 				setContentView(R.layout.activity_welcome);
+
+				// On first launch, display tutorial
+				SharedPreferences settings = getPreferences(MODE_PRIVATE);
+				if(!settings.contains("hasShownTutorial")) {
+						displayTutorial();
+						SharedPreferences.Editor settingsEditor = settings.edit();
+						settingsEditor.putBoolean("hasShownTutorial", true);
+						settingsEditor.commit();
+				}
 		}
 
 
-		@Override
-		public boolean onCreateOptionsMenu(Menu menu) {
-				// Inflate the menu; this adds items to the action bar if it is present.
-				getMenuInflater().inflate(R.menu.menu_welcome, menu);
-				return true;
+		public void displayTutorial() {
+				Intent i = new Intent(WelcomeActivity.this, TutorialActivity.class);
+				startActivity(i);
 		}
 }

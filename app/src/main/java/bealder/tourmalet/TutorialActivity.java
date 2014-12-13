@@ -60,6 +60,11 @@ public class TutorialActivity extends FragmentActivity {
 
 				@Override
 				public Fragment getItem(int position) {
+						// Finish tutorial when sliding past last slide
+						if(position == NUM_PAGES) {
+								finish();
+								position = NUM_PAGES - 1;
+						}
 						Bundle bundle = new Bundle();
 						bundle.putInt("page", position);
 
@@ -70,7 +75,7 @@ public class TutorialActivity extends FragmentActivity {
 
 				@Override
 				public int getCount() {
-						return NUM_PAGES;
+						return NUM_PAGES + 1;
 				}
 		}
 }
