@@ -8,6 +8,6 @@
     <string name="title_activity_tutorial">TutorialActivity</string>
     <string name="title_activity_contact">ContactActivity</string>
     <string name="title_activity_weater">WeaterActivity</string>
-    <string name="adresse">3, allées Tournefort BP 226\n65202 Bagnères-de-Bigorre</string>
+    <string name="adresse">3, allée Tournefort BP 226\n65202 Bagnères-de-Bigorre</string>
     <string name="telephones">La Mongie : 05 62 91 94 15\nBarèges : 05 62 92 16 00\nBagnères : 05 62 95 50 71\nCampan : 05 62 91 70 36</string>
 </resources>
