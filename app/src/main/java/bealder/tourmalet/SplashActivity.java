@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Menu;
 
 
 public class SplashActivity extends Activity {
@@ -33,13 +32,5 @@ public class SplashActivity extends Activity {
 								finish();
 						}
 				}, SPLASH_TIME_OUT);
-		}
-
-
-		@Override
-		public boolean onCreateOptionsMenu(Menu menu) {
-				// Inflate the menu; this adds items to the action bar if it is present.
-				getMenuInflater().inflate(R.menu.menu_splash, menu);
-				return true;
 		}
 }

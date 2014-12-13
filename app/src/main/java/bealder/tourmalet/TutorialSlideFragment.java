@@ -9,12 +9,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * Created by neamar on 12/13/14.
  */
 public class TutorialSlideFragment extends Fragment {
-		public int[] PAGES = new int[]{R.drawable.tutorial_1, R.drawable.tutorial_2, R.drawable.tutorial_3};
+		public int[] PAGES = new int[]{R.layout.fragment_tutorial_slide_1, R.layout.fragment_tutorial_slide_2, R.layout.fragment_tutorial_slide_3};
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -22,9 +23,17 @@ public class TutorialSlideFragment extends Fragment {
 				int currentPage = getArguments().getInt("page", 1);
 
 				ViewGroup rootView = (ViewGroup) inflater.inflate(
-								R.layout.fragment_tutorial_slide, container, false);
+								PAGES[currentPage], container, false);
 
-				rootView.setBackgroundResource(PAGES[currentPage]);
+				Button closeTutorial = (Button) rootView.findViewById(R.id.close_tutorial);
+				if(closeTutorial != null) {
+						closeTutorial.setOnClickListener(new View.OnClickListener() {
+								@Override
+								public void onClick(View view) {
+										getActivity().finish();
+								}
+						});
+				}
 				return rootView;
 		}
 }

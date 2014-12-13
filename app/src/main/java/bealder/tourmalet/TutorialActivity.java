@@ -35,24 +35,6 @@ public class TutorialActivity extends FragmentActivity {
 				mPager = (ViewPager) findViewById(R.id.pager);
 				mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
 				mPager.setAdapter(mPagerAdapter);
-
-				mPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-						@Override
-						public void onPageScrolled(int i, float v, int i2) {
-							if(i == NUM_PAGES - 1 && v > 0) {
-									finish();
-							}
-						}
-
-						@Override
-						public void onPageSelected(int i) {
-						}
-
-						@Override
-						public void onPageScrollStateChanged(int i) {
-
-						}
-				});
 		}
 
 		@Override
@@ -67,10 +49,6 @@ public class TutorialActivity extends FragmentActivity {
 				}
 		}
 
-		/**
-		 * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
-		 * sequence.
-		 */
 		private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 				public ScreenSlidePagerAdapter(FragmentManager fm) {
 						super(fm);
@@ -78,11 +56,6 @@ public class TutorialActivity extends FragmentActivity {
 
 				@Override
 				public Fragment getItem(int position) {
-						// Finish tutorial when sliding past last slide
-
-						// Avoid overflowing
-						position = Math.min(position, NUM_PAGES - 1);
-
 						Bundle bundle = new Bundle();
 						bundle.putInt("page", position);
 
@@ -93,7 +66,7 @@ public class TutorialActivity extends FragmentActivity {
 
 				@Override
 				public int getCount() {
-						return NUM_PAGES + 1;
+						return NUM_PAGES;
 				}
 		}
 }
