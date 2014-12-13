@@ -49,15 +49,18 @@
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:stretchColumns="1"
             android:layout_gravity="center_horizontal">
 
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:stretchColumns="1"
                 android:gravity="center_horizontal">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_margin="16dp"
                     android:background="@drawable/border"
@@ -91,7 +94,8 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_margin="16dp"
                     android:background="@drawable/border"
@@ -119,7 +123,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
-                        android:text="min. 1°C\nmax. 1°C\nSoleil"
+                        android:text="min. 1°C\nmax. 1°C\nSoleil\nPluie\nLol\nEncore"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textColor="#2d746c"/>
                 </LinearLayout>
