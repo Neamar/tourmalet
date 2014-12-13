@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,6 +25,7 @@ public class ContactActivity extends MenuActivity {
 
 				TextView contact = (TextView)findViewById(R.id.contact);
 				contact.setText(Html.fromHtml(getString(R.string.contact)));
+				contact.setMovementMethod(LinkMovementMethod.getInstance());
 
 				TextView phones = (TextView)findViewById(R.id.phones);
 				phones.setText(Html.fromHtml(getString(R.string.telephones)));
