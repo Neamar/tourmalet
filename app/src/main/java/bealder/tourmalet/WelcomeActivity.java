@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 
 public class WelcomeActivity extends Activity {
@@ -15,12 +17,20 @@ public class WelcomeActivity extends Activity {
 
 				// On first launch, display tutorial
 				SharedPreferences settings = getPreferences(MODE_PRIVATE);
-				if(!settings.contains("hasShownTutorial")) {
+				if (!settings.contains("hasShownTutorial")) {
 						displayTutorial();
 						SharedPreferences.Editor settingsEditor = settings.edit();
 						settingsEditor.putBoolean("hasShownTutorial", true);
 						settingsEditor.commit();
 				}
+
+				Button displayTutorialButton = (Button) findViewById(R.id.display_tutorial);
+				displayTutorialButton.setOnClickListener(new View.OnClickListener() {
+						@Override
+						public void onClick(View view) {
+								displayTutorial();
+						}
+				});
 		}
 
 
