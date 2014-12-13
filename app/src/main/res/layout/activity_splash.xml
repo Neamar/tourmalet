@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="#tourmalet"
+        android:text="#grandtourmalet"
         android:textColor="#FFFFFF"
         android:textSize="@dimen/textSizeXtraLarge"
         android:textStyle="bold"/>
