@@ -4,6 +4,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.widget.ImageView;
 
 /**
  * Created by neamar on 12/13/14.
@@ -28,6 +30,32 @@ public class SlideActivity extends FragmentActivity {
 				mPager = (ViewPager) findViewById(R.id.pager);
 				mPagerAdapter = adapter;
 				mPager.setAdapter(mPagerAdapter);
+
+				mPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+						@Override
+						public void onPageScrolled(int i, float v, int i2) {
+
+						}
+
+						@Override
+						public void onPageSelected(int i) {
+								Log.i("PAGER-CHANGE", "Now displaying page " + i);
+								ImageView dot;
+								int[] dots = new int[] {R.id.dot_1, R.id.dot_2, R.id.dot_3};
+								for(int dotResource: dots) {
+										dot = (ImageView) findViewById(dotResource);
+										dot.setImageResource(R.drawable.dot);
+								}
+
+								dot = (ImageView) findViewById(dots[i]);
+								dot.setImageResource(R.drawable.dot_on);
+						}
+
+						@Override
+						public void onPageScrollStateChanged(int i) {
+
+						}
+				});
 		}
 
 		@Override
