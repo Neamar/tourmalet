@@ -11,13 +11,12 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
 
-        <Button
+        <ImageView
             android:id="@+id/close_tutorial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Fermer le tutorial"/>
-
+            android:src="@drawable/close"
+            android:layout_gravity="right"/>
 
         <TextView
             android:layout_width="wrap_content"
