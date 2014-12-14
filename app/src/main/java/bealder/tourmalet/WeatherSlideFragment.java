@@ -15,8 +15,6 @@ import android.widget.TextView;
  * Created by neamar on 12/13/14.
  */
 public class WeatherSlideFragment extends Fragment {
-		public String[] STATIONS = new String[]{"Bagnères de Bigorre", "La Mongie", "Barèges"};
-
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 		                         Bundle savedInstanceState) {
@@ -25,7 +23,7 @@ public class WeatherSlideFragment extends Fragment {
 				ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_weather, container, false);
 
 				TextView stationName = (TextView) rootView.findViewById(R.id.station);
-				stationName.setText(STATIONS[currentPage]);
+				stationName.setText(DownloadWeatherService.STATIONS[currentPage]);
 
 				return rootView;
 		}

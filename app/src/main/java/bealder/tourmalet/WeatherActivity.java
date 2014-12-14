@@ -14,7 +14,7 @@ public class WeatherActivity extends SlideActivity {
 		/**
 		 * The number of weather station to show
 		 */
-		private final int NUM_PAGES = 3;
+		private final int NUM_PAGES = DownloadWeatherService.STATIONS.length;
 
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
