@@ -36,12 +36,23 @@ public class DownloadWeatherService extends Service {
 
 		public static String[] STATIONS = new String[]{"Bagnères de Bigorre", "La Mongie", "Barèges"};
 
+		public static String getCurrentDateFormatted() {
+				return DateFormat.getDateInstance(DateFormat.LONG).format(new Date());
+		}
 
 		private DownloaderTask tutorialDownloader;
 
 		@Override
 		public int onStartCommand(Intent intent, int flags, int startId) {
-				new DownloaderTask().execute(WOEIDS[0]);
+				SharedPreferences weatherData = getApplicationContext().getSharedPreferences("weather", MODE_PRIVATE);
+
+				if(!weatherData.getString(WOEIDS[0] + "-update", "").equals(getCurrentDateFormatted())) {
+						new DownloaderTask().execute(WOEIDS[0]);
+				}
+				else {
+						Log.i("SERVICE", "Data already up to date.");
+						stopSelf();
+				}
 				return Service.START_FLAG_REDELIVERY;
 		}
 
@@ -105,9 +116,9 @@ public class DownloadWeatherService extends Service {
 
 								// Write data on a shared preferences
 								SharedPreferences.Editor editor = getApplicationContext().getSharedPreferences("weather", MODE_PRIVATE).edit();
-								editor.putString(woeid + "-update", DateFormat.getDateInstance(DateFormat.LONG).format(new Date()));
-								editor.putString(woeid + "today", forecast.getJSONObject(0).toString());
-								editor.putString(woeid + "tomorrow", forecast.getJSONObject(0).toString());
+								editor.putString(woeid + "-update", getCurrentDateFormatted());
+								editor.putString(woeid + "-today", forecast.getJSONObject(0).toString());
+								editor.putString(woeid + "-tomorrow", forecast.getJSONObject(1).toString());
 								editor.commit();
 
 						} catch (JSONException e) {

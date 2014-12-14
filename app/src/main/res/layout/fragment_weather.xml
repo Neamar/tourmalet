@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
 
     <TextView
+        android:id="@+id/station"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:paddingTop="16dp"
-        android:id="@+id/station"
         android:text="Bagnères de Bigorre"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#FFFFFF"/>
@@ -17,20 +17,20 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:stretchColumns="1"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:stretchColumns="1">
 
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:stretchColumns="1"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:stretchColumns="1">
 
             <LinearLayout
-                android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_margin="10dp"
+                android:layout_weight="1"
                 android:background="@drawable/border"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
@@ -40,20 +40,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:text="Matin"
+                    android:text="Aujourd&apos;hui"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="#2d746c"/>
+                    android:textColor="#2d746c"
+                    />
 
                 <ImageView
-                    android:id="@+id/morning_weather_image"
+                    android:id="@+id/today_weather_image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/weather_002"/>
+                    android:background="@drawable/weather_27"/>
 
                 <TextView
-                    android:id="@+id/morning_weather_text"
+                    android:id="@+id/today_weather_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
@@ -63,10 +64,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_margin="10dp"
+                android:layout_weight="1"
                 android:background="@drawable/border"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
@@ -75,21 +76,21 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Après-midi"
                     android:gravity="center_horizontal"
+                    android:text="Demain"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="#2d746c"/>
 
                 <ImageView
-                    android:id="@+id/afternoon_weather_image"
+                    android:id="@+id/tomorrow_weather_image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/weather_021"/>
+                    android:background="@drawable/weather_30"/>
 
                 <TextView
-                    android:id="@+id/afternoon_weather_text"
+                    android:id="@+id/tomorrow_weather_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
