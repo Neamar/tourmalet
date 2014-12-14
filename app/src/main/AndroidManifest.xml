@@ -1,48 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    package="bealder.tourmalet"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="bealder.tourmalet" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".SplashActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".WelcomeActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".TutorialActivity"
             android:label="@string/title_activity_tutorial"
             android:parentActivityName=".WelcomeActivity"
-            android:screenOrientation="portrait">
-
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="bealder.tourmalet.WelcomeActivity"/>
+                android:value="bealder.tourmalet.WelcomeActivity" />
         </activity>
         <activity
             android:name=".ContactActivity"
             android:label="@string/title_activity_contact"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".WeatherActivity"
             android:label="@string/title_activity_weather"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
         </activity>
+
+        <service
+            android:name=".DownloadWeatherService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
     </application>
 
 </manifest>

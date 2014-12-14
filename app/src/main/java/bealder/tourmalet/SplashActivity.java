@@ -9,12 +9,15 @@ import android.os.Handler;
 public class SplashActivity extends Activity {
 
 		// Splash screen timer
-		private static int SPLASH_TIME_OUT = 15000;
+		private static int SPLASH_TIME_OUT = 1500;
 
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
 				super.onCreate(savedInstanceState);
 				setContentView(R.layout.activity_splash);
+
+				// Start in the background the service to download the Weather
+				startService(new Intent(this, DownloadWeatherService.class));
 
 				new Handler().postDelayed(new Runnable() {
 
