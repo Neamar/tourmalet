@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -151,7 +150,6 @@ public class WeatherSlideFragment extends Fragment {
 						weatherData.registerOnSharedPreferenceChangeListener(new SharedPreferences.OnSharedPreferenceChangeListener() {
 								@Override
 								public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
-										Log.e("WTF", s);
 										if (s.equals(woeid + "-update") && cacheIsUpToDate(sharedPreferences, woeid)) {
 												displayData(rootView, sharedPreferences, woeid);
 										}
