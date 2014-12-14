@@ -46,11 +46,17 @@ public class DownloadWeatherService extends Service {
 		public int onStartCommand(Intent intent, int flags, int startId) {
 				SharedPreferences weatherData = getApplicationContext().getSharedPreferences("weather", MODE_PRIVATE);
 
-				if(!weatherData.getString(WOEIDS[0] + "-update", "").equals(getCurrentDateFormatted())) {
-						new DownloaderTask().execute(WOEIDS[0]);
+				int count = 0;
+				for (int woeid : WOEIDS) {
+						if (!weatherData.getString(woeid + "-update", "").equals(getCurrentDateFormatted())) {
+								new DownloaderTask().execute(woeid);
+								count++;
+						} else {
+								Log.i("SERVICE", "Data already up to date for " + woeid + ".");
+						}
 				}
-				else {
-						Log.i("SERVICE", "Data already up to date.");
+
+				if(count == 0) {
 						stopSelf();
 				}
 				return Service.START_FLAG_REDELIVERY;

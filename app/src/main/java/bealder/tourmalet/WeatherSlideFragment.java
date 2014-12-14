@@ -74,6 +74,58 @@ public class WeatherSlideFragment extends Fragment {
 						R.drawable.weather_49
 		};
 
+		public String[] WEATHER_CODES = new String[]{
+						"Tornade",
+						"Tempête tropicale",
+						"Typhon",
+						"Gros orages",
+						"Tempêtes",
+						"Pluie et neige",
+						"Pluie et grésil",
+						"Neige et grésil",
+						"Bruine verglaçante",
+						"Bruine",
+						"Pluie verglaçante",
+						"Averses",
+						"Averses",
+						"Tempête de neige",
+						"Neige légère",
+						"Poudreuse",
+						"Neige",
+						"Grêle",
+						"Neige fondue",
+						"Poussière",
+						"Brumeux",
+						"Brume",
+						"Enfumé",
+						"Nuageux",
+						"Venteux",
+						"Froid",
+						"Très nuageux",
+						"Partiellement nuageux",
+						"Partiellement nuageux",
+						"Partiellement nuageux",
+						"Partiellement nuageux",
+						"Temps clair",
+						"Ensoleillé",
+						"Beau temps",
+						"Beau temps",
+						"Pluie et grêle",
+						"Chaud",
+						"Orages isolés",
+						"Orages",
+						"Orages",
+						"Averses éparses",
+						"Forte chute de neige",
+						"Averses de neige",
+						"Forte chute de neige",
+						"Partiellement nuageux",
+						"Averses orageuses",
+						"Averses de neige",
+						"Orages isolés",
+						"Non disponible"
+		};
+
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 		                         Bundle savedInstanceState) {
@@ -92,20 +144,22 @@ public class WeatherSlideFragment extends Fragment {
 						// Information in the cache is up to date: display it
 						try {
 								JSONObject todayWeather = new JSONObject(weatherData.getString(woeid + "-today", "{}"));
+								int todayCode = Integer.parseInt(todayWeather.getString("code"));
 
 								ImageView todayWeatherIcon = (ImageView) rootView.findViewById(R.id.today_weather_image);
-								todayWeatherIcon.setImageResource(ICONS[Integer.parseInt(todayWeather.getString("code"))]);
+								todayWeatherIcon.setImageResource(ICONS[todayCode]);
 
 								TextView todayWeatherText = (TextView) rootView.findViewById(R.id.today_weather_text);
-								todayWeatherText.setText("min. " + todayWeather.getString("low") + "°C\nmax. " + todayWeather.getString("high") + "°C\n" + todayWeather.getString("text"));
+								todayWeatherText.setText("min. " + todayWeather.getString("low") + "°C\nmax. " + todayWeather.getString("high") + "°C\n" + WEATHER_CODES[todayCode]);
 
 								JSONObject tomorrowWeather = new JSONObject(weatherData.getString(woeid + "-tomorrow", "{}"));
+								int tomorrowCode = Integer.parseInt(todayWeather.getString("code"));
 
 								ImageView tomorrowWeatherIcon = (ImageView) rootView.findViewById(R.id.tomorrow_weather_image);
-								tomorrowWeatherIcon.setImageResource(ICONS[Integer.parseInt(tomorrowWeather.getString("code"))]);
+								tomorrowWeatherIcon.setImageResource(ICONS[tomorrowCode]);
 
 								TextView tomorrowWeatherText = (TextView) rootView.findViewById(R.id.tomorrow_weather_text);
-								tomorrowWeatherText.setText("min. " + tomorrowWeather.getString("low") + "°C\nmax. " + tomorrowWeather.getString("high") + "°C\n" + tomorrowWeather.getString("text"));
+								tomorrowWeatherText.setText("min. " + tomorrowWeather.getString("low") + "°C\nmax. " + tomorrowWeather.getString("high") + "°C\n" + WEATHER_CODES[tomorrowCode]);
 
 						} catch (JSONException e) {
 								e.printStackTrace();
