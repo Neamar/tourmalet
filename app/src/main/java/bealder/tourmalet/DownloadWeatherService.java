@@ -45,7 +45,7 @@ public class DownloadWeatherService extends Service {
 		@Override
 		public int onStartCommand(Intent intent, int flags, int startId) {
 				SharedPreferences weatherData = getApplicationContext().getSharedPreferences("weather", MODE_PRIVATE);
-
+				
 				int count = 0;
 				for (int woeid : WOEIDS) {
 						if (!weatherData.getString(woeid + "-update", "").equals(getCurrentDateFormatted())) {

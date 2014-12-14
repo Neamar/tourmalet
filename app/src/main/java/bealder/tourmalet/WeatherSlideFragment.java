@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,10 +71,10 @@ public class WeatherSlideFragment extends Fragment {
 						R.drawable.weather_45,
 						R.drawable.weather_46,
 						R.drawable.weather_47,
-						R.drawable.weather_48,
-						R.drawable.weather_49
+						R.drawable.weather_48
 		};
 
+		// See https://developer.yahoo.com/weather/documentation.html#codes
 		public String[] WEATHER_CODES = new String[]{
 						"Tornade",
 						"Tempête tropicale",
@@ -122,8 +123,7 @@ public class WeatherSlideFragment extends Fragment {
 						"Partiellement nuageux",
 						"Averses orageuses",
 						"Averses de neige",
-						"Orages isolés",
-						"Non disponible"
+						"Orages isolés"
 		};
 
 		@Override
@@ -131,40 +131,89 @@ public class WeatherSlideFragment extends Fragment {
 		                         Bundle savedInstanceState) {
 				int currentPage = getArguments().getInt("page", 1);
 
-				ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_weather, container, false);
+				final ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_weather, container, false);
 
 				// Set the station name
 				TextView stationName = (TextView) rootView.findViewById(R.id.station);
 				stationName.setText(DownloadWeatherService.STATIONS[currentPage]);
 
 				// Retrieve the weather
-				int woeid = DownloadWeatherService.WOEIDS[currentPage];
-				SharedPreferences weatherData = getActivity().getSharedPreferences("weather", Context.MODE_PRIVATE);
-				if (weatherData.getString(woeid + "-update", "").equals(DownloadWeatherService.getCurrentDateFormatted())) {
-						// Information in the cache is up to date: display it
-						try {
-								JSONObject todayWeather = new JSONObject(weatherData.getString(woeid + "-today", "{}"));
-								int todayCode = Integer.parseInt(todayWeather.getString("code"));
+				final int woeid = DownloadWeatherService.WOEIDS[currentPage];
+				final SharedPreferences weatherData = getActivity().getSharedPreferences("weather", Context.MODE_PRIVATE);
 
-								ImageView todayWeatherIcon = (ImageView) rootView.findViewById(R.id.today_weather_image);
-								todayWeatherIcon.setImageResource(ICONS[todayCode]);
+				// Can we display the data right now?
+				if (cacheIsUpToDate(weatherData, woeid)) {
+						displayData(rootView, weatherData, woeid);
+				} else {
+						// If we can't, wait for signaling
+						displayPlaceholder(rootView);
 
-								TextView todayWeatherText = (TextView) rootView.findViewById(R.id.today_weather_text);
-								todayWeatherText.setText("min. " + todayWeather.getString("low") + "°C\nmax. " + todayWeather.getString("high") + "°C\n" + WEATHER_CODES[todayCode]);
-
-								JSONObject tomorrowWeather = new JSONObject(weatherData.getString(woeid + "-tomorrow", "{}"));
-								int tomorrowCode = Integer.parseInt(todayWeather.getString("code"));
-
-								ImageView tomorrowWeatherIcon = (ImageView) rootView.findViewById(R.id.tomorrow_weather_image);
-								tomorrowWeatherIcon.setImageResource(ICONS[tomorrowCode]);
-
-								TextView tomorrowWeatherText = (TextView) rootView.findViewById(R.id.tomorrow_weather_text);
-								tomorrowWeatherText.setText("min. " + tomorrowWeather.getString("low") + "°C\nmax. " + tomorrowWeather.getString("high") + "°C\n" + WEATHER_CODES[tomorrowCode]);
-
-						} catch (JSONException e) {
-								e.printStackTrace();
-						}
+						weatherData.registerOnSharedPreferenceChangeListener(new SharedPreferences.OnSharedPreferenceChangeListener() {
+								@Override
+								public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
+										Log.e("WTF", s);
+										if (s.equals(woeid + "-update") && cacheIsUpToDate(sharedPreferences, woeid)) {
+												displayData(rootView, sharedPreferences, woeid);
+										}
+								}
+						});
 				}
+
 				return rootView;
+		}
+
+		public boolean cacheIsUpToDate(SharedPreferences weatherData, int woeid) {
+				return weatherData.getString(woeid + "-update", "").equals(DownloadWeatherService.getCurrentDateFormatted());
+		}
+
+		public void displayData(View rootView, SharedPreferences weatherData, int woeid) {
+				// Information in the cache is up to date: display it
+				JSONObject todayWeather = null;
+				JSONObject tomorrowWeather = null;
+				try {
+						todayWeather = new JSONObject(weatherData.getString(woeid + "-today", "{}"));
+						tomorrowWeather = new JSONObject(weatherData.getString(woeid + "-tomorrow", "{}"));
+				} catch (JSONException e) {
+						e.printStackTrace();
+				}
+
+				displayIcons(rootView, todayWeather, tomorrowWeather);
+		}
+
+		public void displayIcons(View rootView, JSONObject todayWeather, JSONObject tomorrowWeather) {
+				try {
+						int todayCode = Integer.parseInt(todayWeather.getString("code"));
+
+						ImageView todayWeatherIcon = (ImageView) rootView.findViewById(R.id.today_weather_image);
+						todayWeatherIcon.setImageResource(ICONS[todayCode]);
+
+						TextView todayWeatherText = (TextView) rootView.findViewById(R.id.today_weather_text);
+						todayWeatherText.setText("min. " + todayWeather.getString("low") + "°C\nmax. " + todayWeather.getString("high") + "°C\n" + WEATHER_CODES[todayCode]);
+
+						int tomorrowCode = Integer.parseInt(todayWeather.getString("code"));
+
+						ImageView tomorrowWeatherIcon = (ImageView) rootView.findViewById(R.id.tomorrow_weather_image);
+						tomorrowWeatherIcon.setImageResource(ICONS[tomorrowCode]);
+
+						TextView tomorrowWeatherText = (TextView) rootView.findViewById(R.id.tomorrow_weather_text);
+						tomorrowWeatherText.setText("min. " + tomorrowWeather.getString("low") + "°C\nmax. " + tomorrowWeather.getString("high") + "°C\n" + WEATHER_CODES[tomorrowCode]);
+
+				} catch (JSONException e) {
+						e.printStackTrace();
+				}
+		}
+
+		public void displayPlaceholder(View rootView) {
+				ImageView todayWeatherIcon = (ImageView) rootView.findViewById(R.id.today_weather_image);
+				todayWeatherIcon.setImageResource(R.drawable.weather_unknown);
+
+				ImageView tomorrowWeatherIcon = (ImageView) rootView.findViewById(R.id.tomorrow_weather_image);
+				tomorrowWeatherIcon.setImageResource(R.drawable.weather_unknown);
+
+				TextView todayWeatherText = (TextView) rootView.findViewById(R.id.today_weather_text);
+				todayWeatherText.setText("Non disponible");
+
+				TextView tomorrowWeatherText = (TextView) rootView.findViewById(R.id.tomorrow_weather_text);
+				tomorrowWeatherText.setText("Non disponible");
 		}
 }
