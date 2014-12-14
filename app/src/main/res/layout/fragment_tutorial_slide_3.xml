@@ -8,41 +8,44 @@
         android:id="@+id/close_tutorial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/close"
-        android:layout_gravity="right"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentTop="true"
+        android:layout_gravity="right"
+        android:src="@drawable/close"/>
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/imageView3"
+        android:layout_toStartOf="@+id/imageView3"
+        android:src="@drawable/tutorial_3_beacon"/>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:paddingTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="45dp"
+        android:src="@drawable/tutorial_3_phone"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/close_tutorial"
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
         android:padding="@dimen/activity_horizontal_margin"
         android:text="Pour profiter des bons plans, n'oubliez pas de laisser le Bluetooth activé !"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF"
-        android:layout_below="@+id/close_tutorial"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:textColor="#FFFFFF"/>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/tutorial_3_beacon"
-        android:id="@+id/imageView5"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/imageView3"
-        android:layout_toStartOf="@+id/imageView3"/>
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/tutorial_3_phone"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="45dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
 </RelativeLayout>

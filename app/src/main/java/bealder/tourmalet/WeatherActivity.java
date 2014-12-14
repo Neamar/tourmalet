@@ -6,15 +6,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.widget.TextView;
 
-import java.text.DateFormat;
-import java.util.Date;
-
 
 public class WeatherActivity extends SlideActivity {
 		/**
 		 * The number of weather station to show
 		 */
-		private final int NUM_PAGES = 3;
+		private final int NUM_PAGES = DownloadWeatherService.STATIONS.length;
 
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +22,7 @@ public class WeatherActivity extends SlideActivity {
 
 				TextView dateText = (TextView) findViewById(R.id.date);
 
-				String dateString = DateFormat.getDateInstance(DateFormat.LONG).format(new Date());
+				String dateString = DownloadWeatherService.getCurrentDateFormatted();
 
 				dateString = dateString.substring(0, 1).toUpperCase() + dateString.substring(1).toLowerCase();
 				dateText.setText(dateString);
