@@ -9,7 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 
 /**
  * Created by neamar on 12/13/14.
@@ -25,7 +25,7 @@ public class TutorialSlideFragment extends Fragment {
 				ViewGroup rootView = (ViewGroup) inflater.inflate(
 								PAGES[currentPage], container, false);
 
-				Button closeTutorial = (Button) rootView.findViewById(R.id.close_tutorial);
+				ImageView closeTutorial = (ImageView) rootView.findViewById(R.id.close_tutorial);
 				if(closeTutorial != null) {
 						closeTutorial.setOnClickListener(new View.OnClickListener() {
 								@Override
