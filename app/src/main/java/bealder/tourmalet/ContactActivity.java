@@ -24,11 +24,11 @@ public class ContactActivity extends Activity {
 				addSocialLink(R.id.contact_twitter, "https://twitter.com/GrandTourmalet");
 				addSocialLink(R.id.contact_instagram, "http://instagram.com/grandtourmalet/");
 
-				TextView contact = (TextView)findViewById(R.id.contact);
+				TextView contact = (TextView) findViewById(R.id.contact);
 				contact.setText(Html.fromHtml(getString(R.string.contact)));
 				contact.setMovementMethod(LinkMovementMethod.getInstance());
 
-				TextView phones = (TextView)findViewById(R.id.phones);
+				TextView phones = (TextView) findViewById(R.id.phones);
 				phones.setText(Html.fromHtml(getString(R.string.telephones)));
 		}
 

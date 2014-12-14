@@ -35,17 +35,16 @@ public class DownloadWeatherService extends Service {
 		};
 
 		public static String[] STATIONS = new String[]{"Bagnères de Bigorre", "La Mongie", "Barèges"};
+		private DownloaderTask tutorialDownloader;
 
 		public static String getCurrentDateFormatted() {
 				return DateFormat.getDateInstance(DateFormat.LONG).format(new Date());
 		}
 
-		private DownloaderTask tutorialDownloader;
-
 		@Override
 		public int onStartCommand(Intent intent, int flags, int startId) {
 				SharedPreferences weatherData = getApplicationContext().getSharedPreferences("weather", MODE_PRIVATE);
-				
+
 				int count = 0;
 				for (int woeid : WOEIDS) {
 						if (!weatherData.getString(woeid + "-update", "").equals(getCurrentDateFormatted())) {
@@ -56,7 +55,7 @@ public class DownloadWeatherService extends Service {
 						}
 				}
 
-				if(count == 0) {
+				if (count == 0) {
 						stopSelf();
 				}
 				return Service.START_FLAG_REDELIVERY;

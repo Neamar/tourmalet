@@ -26,7 +26,7 @@ public class TutorialSlideFragment extends Fragment {
 								PAGES[currentPage], container, false);
 
 				ImageView closeTutorial = (ImageView) rootView.findViewById(R.id.close_tutorial);
-				if(closeTutorial != null) {
+				if (closeTutorial != null) {
 						closeTutorial.setOnClickListener(new View.OnClickListener() {
 								@Override
 								public void onClick(View view) {

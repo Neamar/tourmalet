@@ -41,8 +41,8 @@ public class SlideActivity extends FragmentActivity {
 						public void onPageSelected(int i) {
 								Log.i("PAGER-CHANGE", "Now displaying page " + i);
 								ImageView dot;
-								int[] dots = new int[] {R.id.dot_1, R.id.dot_2, R.id.dot_3};
-								for(int dotResource: dots) {
+								int[] dots = new int[]{R.id.dot_1, R.id.dot_2, R.id.dot_3};
+								for (int dotResource : dots) {
 										dot = (ImageView) findViewById(dotResource);
 										dot.setImageResource(R.drawable.dot);
 								}

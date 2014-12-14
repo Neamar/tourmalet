@@ -46,10 +46,10 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
         android:layout_above="@+id/imageView4"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="23dp"
+        android:gravity="center_horizontal"
         android:orientation="horizontal">
 
         <ImageView
