@@ -6,16 +6,21 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import com.bealder.android.sdk.service.BealderSdkActivity;
 
 
-public class WelcomeActivity extends Activity {
+public class WelcomeActivity extends BealderSdkActivity {
 
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
 				super.onCreate(savedInstanceState);
+
+                // Create instance Bealder
+                createBealder("3", "9de400d31369718b4e827054c1180c5b", "B9407F30-F5F8-466E-AFF9-25556B57FE6D");
+
 				setContentView(R.layout.activity_welcome);
 
-				// On first launch, display tutorial
+                // On first launch, display tutorial
 				SharedPreferences settings = getPreferences(MODE_PRIVATE);
 				if (!settings.contains("hasShownTutorial")) {
 						displayTutorial();
