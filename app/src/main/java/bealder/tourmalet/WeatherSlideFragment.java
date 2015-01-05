@@ -69,8 +69,7 @@ public class WeatherSlideFragment extends Fragment {
 						R.drawable.weather_44,
 						R.drawable.weather_45,
 						R.drawable.weather_46,
-						R.drawable.weather_47,
-						R.drawable.weather_48
+						R.drawable.weather_47
 		};
 
 		// See https://developer.yahoo.com/weather/documentation.html#codes

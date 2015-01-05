@@ -16,7 +16,7 @@ public class WelcomeActivity extends BealderSdkActivity {
 				super.onCreate(savedInstanceState);
 
                 // Create instance Bealder
-                createBealder("3", "9de400d31369718b4e827054c1180c5b", "B9407F30-F5F8-466E-AFF9-25556B57FE6D");
+                createBealder("8", "8c7bcad00a2beb41414aaeeb69276efd", "B9407F30-F5F8-466E-AFF9-25556B57FE6D");
 
 				setContentView(R.layout.activity_welcome);
 

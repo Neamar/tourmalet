@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Tourmalet.iml" filepath="$PROJECT_DIR$/Tourmalet.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tourmalet.iml" filepath="$PROJECT_DIR$/tourmalet.iml" />
     </modules>
   </component>
 </project>

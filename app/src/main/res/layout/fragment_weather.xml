@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/weather_27"/>
+                    android:src="@drawable/weather_27"/>
 
                 <TextView
                     android:id="@+id/today_weather_text"
@@ -87,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/weather_30"/>
+                    android:src="@drawable/weather_30"/>
 
                 <TextView
                     android:id="@+id/tomorrow_weather_text"
