@@ -23,8 +23,6 @@ android {
 }
 
 dependencies {
-    compile files('libs/bealder_sdk_1.1.jar')
-    compile files('libs/Parse-1.7.1.zip')
-    compile files('libs/android-beacon-library-2.0-beta6.tar.gz')
+    compile files('libs/BealderSdk_Tourmalet.jar')
     compile 'com.android.support:support-v4:21.0.0'
 }
