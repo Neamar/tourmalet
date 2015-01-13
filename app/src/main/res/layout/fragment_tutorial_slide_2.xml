@@ -31,7 +31,7 @@
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
         android:padding="@dimen/activity_horizontal_margin"
-        android:text="Profitez des actualités en temps réel en fonction de votre emplacement dans la station"
+        android:text="Profitez des actualités en temps réel en fonction de votre emplacement"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#FFFFFF"
         />
