@@ -65,6 +65,47 @@
             android:exported="true" >
         </service>
 
+
+
+       <!-- <activity android:name="com.bealder.android.sdk.service.PushReceiverActivity" >
+        </activity>-->
+        <activity android:name="com.bealder.android.sdk.AdvertActivity" >
+        </activity>
+
+
+        <service
+            android:name="com.bealder.android.sdk.service.BeaconTrackService"
+            android:enabled="true"
+            android:exported="false" >
+        </service>
+        <service android:name="org.altbeacon.beacon.service.BeaconService" >
+        </service>
+        <service android:name="org.altbeacon.beacon.BeaconIntentProcessor" >
+        </service>
+
+        <receiver android:name="com.bealder.android.sdk.service.BeaconTrackServiceAutostart" >
+            <action android:name="android.intent.action.boot_completed" />
+        </receiver>
+        <receiver android:name="com.bealder.android.sdk.receiver.BluetoothStateChangeReceiver" >
+            <action android:name="android.bluetooth.adapter.action.state_changed" />
+        </receiver>
+
+        <!-- Parse -->
+        <service android:name="com.parse.PushService" />
+        <receiver android:name="com.parse.ParseBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.bealder.android.sdk.service.PushReceiverActivity"
+                  android:exported="false">
+            <intent-filter>
+                <action android:name="com.parse.push.intent.RECEIVE" />
+                <action android:name="com.parse.push.intent.DELETE" />
+                <action android:name="com.parse.push.intent.OPEN" />
+            </intent-filter>
+        </receiver>
         <receiver
             android:name="com.parse.GcmBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
@@ -76,28 +117,6 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name="com.bealder.android.sdk.service.PushReceiverActivity" >
-        </activity>
-        <activity android:name="com.bealder.android.sdk.AdvertActivity" >
-        </activity>
-
-        <service android:name="com.parse.PushService" />
-        <service
-            android:name="com.bealder.android.sdk.service.BeaconTrackService"
-            android:enabled="true"
-            android:exported="false" >
-        </service>
-        <service android:name="org.altbeacon.beacon.service.BeaconService" >
-        </service>
-        <service android:name="org.altbeacon.beacon.BeaconIntentProcessor" >
-        </service>
-
-        <receiver android:name="com.bealder.android.sdk.receiver.BeaconTrackServiceAutostart" >
-            <action android:name="android.intent.action.boot_completed" />
-        </receiver>
-        <receiver android:name="com.bealder.android.sdk.receiver.BluetoothStateChangeReceiver" >
-            <action android:name="android.bluetooth.adapter.action.state_changed" />
-        </receiver>
     </application>
 
 </manifest>

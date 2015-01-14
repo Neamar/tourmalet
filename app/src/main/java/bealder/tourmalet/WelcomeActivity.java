@@ -18,7 +18,13 @@ public class WelcomeActivity extends BealderSdkActivity {
                 // Create instance Bealder
                 createBealder("8", "8c7bcad00a2beb41414aaeeb69276efd", "B9407F30-F5F8-466E-AFF9-25556B57FE6D");
 
-				setContentView(R.layout.activity_welcome);
+            // Octiplex iOS beacon
+           //createBealder("8", "8c7bcad00a2beb41414aaeeb69276efd", "e4585c10-4f09-42ec-b957-39f4616c5f3d");
+
+            // Octiplex EzeeWorld beacon
+//            createBealder("8", "8c7bcad00a2beb41414aaeeb69276efd", "89864cc7-7b89-48d7-8e9f-acae19d81ad8");
+
+            setContentView(R.layout.activity_welcome);
 
                 // On first launch, display tutorial
 				SharedPreferences settings = getPreferences(MODE_PRIVATE);
