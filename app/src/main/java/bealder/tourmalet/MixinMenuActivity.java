@@ -19,6 +19,9 @@ public class MixinMenuActivity {
 				if (!(currentActivity instanceof ContactActivity)) {
 						addMenuListener(currentActivity, R.id.menu_contact, ContactActivity.class);
 				}
+			if (!(currentActivity instanceof ContactActivity)) {
+				addMenuListener(currentActivity, R.id.menu_news, NewsActivity.class);
+			}
 		}
 
 		private void addMenuListener(final Activity currentActivity, int id, final Class activityToOpen) {

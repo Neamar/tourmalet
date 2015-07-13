@@ -23,7 +23,6 @@ android {
 }
 
 dependencies {
-    //compile files('libs/BealderSdk_Tourmalet.jar')
     compile files('libs/bealder_sdk_tourmalet.jar')
     compile 'com.android.support:support-v4:21.0.+'
 }
