@@ -8,9 +8,7 @@ import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 
-/**
- * Created by neamar on 7/13/15.
- */
+
 public class NewsAdapter extends ArrayAdapter<NewsItem> {
     protected final ArrayList<NewsItem> news;
     protected final LayoutInflater inflater;
