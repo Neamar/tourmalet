@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -30,6 +31,9 @@ public class NewsAdapter extends ArrayAdapter<NewsItem> {
         ((TextView) convertView.findViewById(R.id.news_title)).setText(news.get(position).title);
         ((TextView) convertView.findViewById(R.id.news_description)).setText(news.get(position).description);
         ((TextView) convertView.findViewById(R.id.news_info)).setText(news.get(position).infos);
+
+        ImageView imageView = (ImageView) convertView.findViewById(R.id.news_image);
+        com.nostra13.universalimageloader.core.ImageLoader.getInstance().displayImage(news.get(position).image, imageView);
 
         return convertView;
     }
