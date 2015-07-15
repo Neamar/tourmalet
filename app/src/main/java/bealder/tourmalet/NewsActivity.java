@@ -89,6 +89,8 @@ public class NewsActivity extends Activity {
     }
 
     public ArrayList<NewsItem> parseXmlData(String xml) {
+        ArrayList<NewsItem> newsItems = new ArrayList<>();
+
         JSONObject jsonObj = null;
         try {
             jsonObj = XML.toJSONObject(xml);
@@ -99,13 +101,20 @@ public class NewsActivity extends Activity {
                 JSONObject entry = entries.getJSONObject(i);
                 NewsItem news = new NewsItem();
                 news.title = entry.getJSONObject("title").getString("content");
-                Log.e("WTF", news.title);
+                news.description = entry.getJSONObject("content").getJSONObject("m:properties").getString("d:DESCRIPTIF");
+
+                // Some items contains XML child, we need to retrieve the raw string in such a case
+                if(news.description.indexOf("xml:space") != -1) {
+                    news.description = entry.getJSONObject("content").getJSONObject("m:properties").getJSONObject("d:DESCRIPTIF").getString("content");
+                }
+
+                Log.e("WTF", news.description);
+                newsItems.add(news);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-
-        return new ArrayList<>();
+        return newsItems;
     }
 }

@@ -4,30 +4,35 @@
               android:background="#FFFFFF"
               android:layout_width="match_parent"
               android:padding="5dp"
-              android:layout_height="match_parent">
+              android:layout_height="wrap_content">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_launcher"
+        android:layout_gravity="center"
         android:id="@+id/news_image"/>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="NEWS TITLE"
+            android:text="News title"
+            android:textColor="#2b7368"
+            android:textAllCaps="true"
+            android:ellipsize="end"
             android:id="@+id/news_title"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#aba9aa"
             android:text="Date : 10/06/2015"
             android:id="@+id/news_info"/>
 
@@ -36,6 +41,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="La musique retentira de la vallée jusqu'au Pic du midi de Bigorre"
+            android:maxLines="2"
             android:id="@+id/news_description"/>
     </LinearLayout>
 </LinearLayout>
