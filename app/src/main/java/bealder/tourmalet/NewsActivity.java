@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ListView;
 
 import org.apache.http.HttpEntity;
@@ -108,7 +107,11 @@ public class NewsActivity extends Activity {
                     news.description = entry.getJSONObject("content").getJSONObject("m:properties").getJSONObject("d:DESCRIPTIF").getString("content");
                 }
 
-                Log.e("WTF", news.description);
+                String date = entry.getString("updated").replaceFirst("T.+$", "");
+                String commune = entry.getJSONObject("content").getJSONObject("m:properties").getString("d:COMMUNE").toLowerCase();
+
+                news.infos = "Date : " + date + "\nLieu : " + commune;
+
                 newsItems.add(news);
             }
         } catch (JSONException e) {
