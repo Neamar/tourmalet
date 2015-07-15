@@ -4,14 +4,19 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.XML;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -65,11 +70,10 @@ public class NewsActivity extends Activity {
         String xml = null;
 
         try {
-            // defaultHttpClient
             DefaultHttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost(url);
+            HttpGet httpGet = new HttpGet(url);
 
-            HttpResponse httpResponse = httpClient.execute(httpPost);
+            HttpResponse httpResponse = httpClient.execute(httpGet);
             HttpEntity httpEntity = httpResponse.getEntity();
             xml = EntityUtils.toString(httpEntity);
 
@@ -85,6 +89,23 @@ public class NewsActivity extends Activity {
     }
 
     public ArrayList<NewsItem> parseXmlData(String xml) {
+        JSONObject jsonObj = null;
+        try {
+            jsonObj = XML.toJSONObject(xml);
+
+            JSONArray entries = jsonObj.getJSONObject("feed").getJSONArray("entry");
+
+            for(int i = 0; i < entries.length(); i++) {
+                JSONObject entry = entries.getJSONObject(i);
+                NewsItem news = new NewsItem();
+                news.title = entry.getJSONObject("title").getString("content");
+                Log.e("WTF", news.title);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
         return new ArrayList<>();
     }
 }

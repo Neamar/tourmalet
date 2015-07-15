@@ -23,6 +23,8 @@ android {
 }
 
 dependencies {
+    compile 'com.android.support:support-v4:22.2.0'
+
     compile files('libs/bealder_sdk_tourmalet.jar')
-    compile 'com.android.support:support-v4:21.0.+'
+    compile files('libs/java-json.jar')
 }

@@ -1,124 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="bealder.tourmalet" >
+<manifest package="bealder.tourmalet"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
 
     <permission
         android:name="bealder.tourmalet.permission.C2D_MESSAGE"
-        android:protectionLevel="signature" />
+        android:protectionLevel="signature"/>
 
-    <uses-permission android:name="bealder.tourmalet.permission.C2D_MESSAGE" />
+    <uses-permission android:name="bealder.tourmalet.permission.C2D_MESSAGE"/>
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".SplashActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".WelcomeActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".TutorialActivity"
             android:label="@string/title_activity_tutorial"
             android:parentActivityName=".WelcomeActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="bealder.tourmalet.WelcomeActivity" />
+                android:value="bealder.tourmalet.WelcomeActivity"/>
         </activity>
         <activity
             android:name=".ContactActivity"
             android:label="@string/title_activity_contact"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".WeatherActivity"
             android:label="@string/title_activity_weather"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".NewsActivity"
             android:label="@string/title_activity_news"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
 
         <service
             android:name=".DownloadWeatherService"
             android:enabled="true"
-            android:exported="true" >
+            android:exported="true">
         </service>
 
 
-
-       <!-- <activity android:name="com.bealder.android.sdk.service.PushReceiverActivity" >
-        </activity>-->
-        <activity android:name="com.bealder.android.sdk.AdvertActivity" >
+        <!-- <activity android:name="com.bealder.android.sdk.service.PushReceiverActivity" >
+         </activity>-->
+        <activity android:name="com.bealder.android.sdk.AdvertActivity">
         </activity>
 
 
         <service
             android:name="com.bealder.android.sdk.service.BeaconTrackService"
             android:enabled="true"
-            android:exported="false" >
+            android:exported="false">
         </service>
-        <service android:name="org.altbeacon.beacon.service.BeaconService" >
+        <service android:name="org.altbeacon.beacon.service.BeaconService">
         </service>
-        <service android:name="org.altbeacon.beacon.BeaconIntentProcessor" >
+        <service android:name="org.altbeacon.beacon.BeaconIntentProcessor">
         </service>
 
-        <receiver android:name="com.bealder.android.sdk.service.BeaconTrackServiceAutostart" >
-            <action android:name="android.intent.action.boot_completed" />
+        <receiver android:name="com.bealder.android.sdk.service.BeaconTrackServiceAutostart">
+            <action android:name="android.intent.action.boot_completed"/>
         </receiver>
-        <receiver android:name="com.bealder.android.sdk.receiver.BluetoothStateChangeReceiver" >
-            <action android:name="android.bluetooth.adapter.action.state_changed" />
+        <receiver android:name="com.bealder.android.sdk.receiver.BluetoothStateChangeReceiver">
+            <action android:name="android.bluetooth.adapter.action.state_changed"/>
         </receiver>
 
         <!-- Parse -->
-        <service android:name="com.parse.PushService" />
+        <service android:name="com.parse.PushService"/>
+
         <receiver android:name="com.parse.ParseBroadcastReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
             </intent-filter>
         </receiver>
-        <receiver android:name="com.bealder.android.sdk.service.PushReceiverActivity"
-                  android:exported="false">
+        <receiver
+            android:name="com.bealder.android.sdk.service.PushReceiverActivity"
+            android:exported="false">
             <intent-filter>
-                <action android:name="com.parse.push.intent.RECEIVE" />
-                <action android:name="com.parse.push.intent.DELETE" />
-                <action android:name="com.parse.push.intent.OPEN" />
+                <action android:name="com.parse.push.intent.RECEIVE"/>
+                <action android:name="com.parse.push.intent.DELETE"/>
+                <action android:name="com.parse.push.intent.OPEN"/>
             </intent-filter>
         </receiver>
         <receiver
             android:name="com.parse.GcmBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND" >
+            android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
 
-                <category android:name="bealder.tourmalet" />
+                <category android:name="bealder.tourmalet"/>
             </intent-filter>
         </receiver>
 
