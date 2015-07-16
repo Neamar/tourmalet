@@ -2,8 +2,11 @@ package bealder.tourmalet;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -70,6 +73,17 @@ public class NewsActivity extends Activity {
 
         new RetrieveNewsTask().execute("");
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                NewsItem newsItem = (NewsItem) adapterView.getItemAtPosition(i);
+
+                Intent intent = new Intent(NewsActivity.this, NewsDetailActivity.class);
+                intent.putExtra("newsItem", newsItem);
+
+                startActivity(intent);
+            }
+        });
     }
 
     public String downloadXML(String url) {
@@ -117,7 +131,7 @@ public class NewsActivity extends Activity {
                 String date = entry.getString("updated").replaceFirst("T.+$", "");
                 String commune = entry.getJSONObject("content").getJSONObject("m:properties").getString("d:COMMUNE").toLowerCase();
 
-                news.infos = "Date : " + date + "\nLieu : " + commune;
+                news.info = "Date : " + date + "\nLieu : " + commune;
 
                 news.image = entry.getJSONObject("content").getJSONObject("m:properties").getString("d:PHOTOS").split("\\|")[1];
 

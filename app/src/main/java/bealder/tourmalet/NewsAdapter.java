@@ -32,7 +32,7 @@ public class NewsAdapter extends ArrayAdapter<NewsItem> {
 
         ((TextView) convertView.findViewById(R.id.news_title)).setText(news.get(position).title);
         ((TextView) convertView.findViewById(R.id.news_description)).setText(news.get(position).description);
-        ((TextView) convertView.findViewById(R.id.news_info)).setText(news.get(position).infos);
+        ((TextView) convertView.findViewById(R.id.news_info)).setText(news.get(position).info);
 
         ImageView imageView = (ImageView) convertView.findViewById(R.id.news_image);
         imageView.setImageResource(R.drawable.ic_launcher);

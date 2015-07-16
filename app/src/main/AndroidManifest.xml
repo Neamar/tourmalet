@@ -57,6 +57,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+            android:name=".NewsDetailActivity"
+            android:label="@string/title_activity_news"
+            android:screenOrientation="portrait">
+        </activity>
 
         <service
             android:name=".DownloadWeatherService"
