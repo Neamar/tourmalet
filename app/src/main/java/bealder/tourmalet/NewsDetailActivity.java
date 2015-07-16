@@ -17,7 +17,6 @@ public class NewsDetailActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_detail);
 
-
         // Create global configuration and initialize ImageLoader with this config
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this).build();
         ImageLoader.getInstance().init(config);
@@ -34,5 +33,8 @@ public class NewsDetailActivity extends Activity {
         ImageView imageView = (ImageView) findViewById(R.id.news_image);
         imageView.setImageResource(R.drawable.ic_launcher);
         ImageLoader.getInstance().displayImage(newsItem.image, imageView);
+
+        new MixinMenuActivity().addMenuListeners(this);
+
     }
 }

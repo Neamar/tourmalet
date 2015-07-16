@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<FrameLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#b0dce7">
 
     <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="55dp"
+        android:padding="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="15dp"
-            android:padding="5dp"
+            android:layout_height="wrap_content"
             android:background="#FFFFFF"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="5dp">
 
             <ImageView
                 android:id="@+id/news_image"
@@ -42,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:autoLink="web"
-                android:text="La musique retentira de la vallée jusqu'au Pic du midi de Bigorre"
+                android:text="La musique retentira de la vallée jusqu'au Pic du midi de Bigorre\nLa musique retentira de la vallée jusqu'au Pic du midi de Bigorre\nLa musique retentira de la vallée jusqu'au Pic du midi de Bigorre\nLa musique retentira de la vallée jusqu'au Pic du midi de Bigorre\nLa musique retentira de la vallée jusqu'au Pic du midi de Bigorre\nLa musique retentira de la vallée jusqu'au Pic du midi de Bigorre\nLa musique retentira de la vallée jusqu'au Pic du midi de Bigorre\n"
                 android:textAppearance="?android:attr/textAppearanceSmall"/>
 
             <TextView
@@ -51,8 +52,16 @@
                 android:layout_height="wrap_content"
                 android:text="Date : 10/06/2015"
                 android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_marginBottom="15dp"
                 android:textColor="#aba9aa"/>
 
         </LinearLayout>
     </ScrollView>
-</FrameLayout>
+
+    <include
+        android:id="@+id/menu"
+        layout="@layout/layout_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>
