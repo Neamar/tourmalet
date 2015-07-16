@@ -119,6 +119,8 @@ public class NewsActivity extends Activity {
 
                 news.infos = "Date : " + date + "\nLieu : " + commune;
 
+                news.image = entry.getJSONObject("content").getJSONObject("m:properties").getString("d:PHOTOS").split("\\|")[1];
+
                 newsItems.add(news);
             }
         } catch (JSONException e) {
