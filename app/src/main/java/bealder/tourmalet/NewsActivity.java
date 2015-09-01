@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -139,6 +140,9 @@ public class NewsActivity extends Activity {
             }
         } catch (JSONException e) {
             e.printStackTrace();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Impossible de récupérer les news, problème serveur.", Toast.LENGTH_SHORT).show();
         }
 
         return newsItems;
