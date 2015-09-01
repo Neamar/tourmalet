@@ -1,54 +1,32 @@
 package bealder.tourmalet;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.widget.TextView;
+import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 
-public class WeatherActivity extends SlideActivity {
-		/**
-		 * The number of weather station to show
-		 */
-		private final int NUM_PAGES = DownloadWeatherService.STATIONS.length;
+public class WeatherActivity extends Activity {
 
-		@Override
-		protected void onCreate(Bundle savedInstanceState) {
-				super.onCreate(savedInstanceState);
-				setContentView(R.layout.activity_weather);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_weather);
 
-				new MixinMenuActivity().addMenuListeners(this);
+        new MixinMenuActivity().addMenuListeners(this);
 
-				TextView dateText = (TextView) findViewById(R.id.date);
+        WebView webView = (WebView) findViewById(R.id.webview);
+        webView.getSettings().setJavaScriptEnabled(true);
+        final View loader = findViewById(R.id.loader);
 
-				String dateString = DownloadWeatherService.getCurrentDateFormatted();
+        webView.loadUrl("file:///android_asset/weather.html");
 
-				dateString = dateString.substring(0, 1).toUpperCase() + dateString.substring(1).toLowerCase();
-				dateText.setText(dateString);
+        webView.setWebViewClient(new WebViewClient() {
 
-				initPager(new ScreenSlidePagerAdapter(getSupportFragmentManager()));
-		}
-
-
-		protected class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
-				public ScreenSlidePagerAdapter(FragmentManager fm) {
-						super(fm);
-				}
-
-				@Override
-				public Fragment getItem(int position) {
-						Bundle bundle = new Bundle();
-						bundle.putInt("page", position);
-
-						Fragment page = new WeatherSlideFragment();
-						page.setArguments(bundle);
-						return page;
-				}
-
-				@Override
-				public int getCount() {
-						return NUM_PAGES;
-				}
-		}
+            public void onPageFinished(WebView view, String url) {
+                loader.setVisibility(View.GONE);
+            }
+        });
+    }
 }

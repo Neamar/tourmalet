@@ -63,11 +63,6 @@
             android:screenOrientation="portrait">
         </activity>
 
-        <service
-            android:name=".DownloadWeatherService"
-            android:enabled="true"
-            android:exported="true">
-        </service>
 
 
         <!-- <activity android:name="com.bealder.android.sdk.service.PushReceiverActivity" >
