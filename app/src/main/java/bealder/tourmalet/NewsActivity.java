@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -35,7 +36,7 @@ public class NewsActivity extends Activity {
 
     private class RetrieveNewsTask extends AsyncTask<String, Void, ArrayList<NewsItem>> {
         protected ArrayList<NewsItem> doInBackground(String... urls) {
-            String xml = downloadXML("http://wcf.tourinsoft.com/Syndication/3.0/cdt65/e1eecc8a-c528-478f-a372-490c1271d4b9/Objects?$top=20");
+            String xml = downloadXML("http://wcf.tourinsoft.com/Syndication/3.0/cdt65/e1eecc8a-c528-478f-a372-490c1271d4b9/Objects?$top=20&$orderby=DATEDEBUT&$filter=DATEFIN%20le%20'22/08/2015'");
 
             final ArrayList<NewsItem> news = parseXmlData(xml);
             runOnUiThread(new Runnable() {
@@ -97,6 +98,7 @@ public class NewsActivity extends Activity {
             HttpResponse httpResponse = httpClient.execute(httpGet);
             HttpEntity httpEntity = httpResponse.getEntity();
             xml = EntityUtils.toString(httpEntity);
+            Log.e("WTf", "POUET POUET");
 
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
@@ -129,12 +131,13 @@ public class NewsActivity extends Activity {
                     news.description = entry.getJSONObject("content").getJSONObject("m:properties").getJSONObject("d:DESCRIPTIF").getString("content");
                 }
 
-                String date = entry.getString("updated").replaceFirst("T.+$", "");
-                String commune = entry.getJSONObject("content").getJSONObject("m:properties").getString("d:COMMUNE").toLowerCase();
+                JSONObject properties = entry.getJSONObject("content").getJSONObject("m:properties");
+                String date = properties.getString("d:DATEDEBUT");
+                String commune = properties.getString("d:COMMUNE").toLowerCase();
 
                 news.info = "Date : " + date + "\nLieu : " + commune;
 
-                news.image = entry.getJSONObject("content").getJSONObject("m:properties").getString("d:PHOTOS").split("\\|")[1];
+                news.image = properties.getString("d:PHOTOS").split("\\|")[1];
 
                 newsItems.add(news);
             }
